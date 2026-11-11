@@ -1,5 +1,6 @@
 package app.template.patches.example
 
+import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.resourcePatch
@@ -11,6 +12,8 @@ private const val X = "APKTOOL_DUMMYVAL_0x7f17"
 private val GBOARD_COMPATIBILITY = Compatibility(
     packageName = "com.google.android.inputmethod.latin",
     name = "Gboard",
+    apkFileType = ApkFileType.APKM, // Gboard is distributed as a split bundle
+    appIconColor = 0x4285F4,
     targets = listOf(AppTarget(version = null)), // any version; the checks in execute guard 18.5.4
 )
 
